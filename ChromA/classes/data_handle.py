@@ -1027,7 +1027,7 @@ def count_fragments_bed(tsv_file, bed_file, cells_file):
     # Init Ray
     processors = int(multiprocessing.cpu_count()) - 1
     if not ray.is_initialized():
-        ray.init(num_cpus=processors, object_store_memory=int(40e9), include_webui=False)
+        ray.init(num_cpus=processors, object_store_memory=int(200e9), include_webui=False)
 
     # Split Load by Processor
     splits = int(np.floor(len(interval) / processors))
